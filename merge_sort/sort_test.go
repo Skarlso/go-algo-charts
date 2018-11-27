@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"reflect"
 	"testing"
 )
@@ -12,6 +13,7 @@ func TestMergeSort(t *testing.T) {
 	if !reflect.DeepEqual(got, want) {
 		t.Fatalf("got: %v, want: %v\n", got, want)
 	}
+	log.Println("operations: ", op)
 }
 
 func BenchmarkMergeSort(b *testing.B) {
@@ -20,4 +22,5 @@ func BenchmarkMergeSort(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		mergeSort(a, l)
 	}
+
 }

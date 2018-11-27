@@ -1,9 +1,16 @@
 package main
 
-import "fmt"
-
 func main() {
-	a := []int{6, 4, 3, 5, 7, 4, 2, 4, 6, 8, 9, 3}
-	sorted := mergeSort(a, len(a))
-	fmt.Println("sorted: ", sorted)
+	plotX := []float64{}
+	plotY := []float64{}
+	a := []int{1, 2, 3, 4}
+	for i := 0; i < 100; i++ {
+		op = 0
+		a = append(a, i)
+		elements := len(a)
+		mergeSort(a, elements)
+		plotX = append(plotX, float64(elements))
+		plotY = append(plotY, float64(op))
+	}
+	drawChart(plotX, plotY)
 }

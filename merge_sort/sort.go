@@ -4,7 +4,10 @@ import (
 	"math"
 )
 
+var op int
+
 func merge(a, b []int) []int {
+	op++
 	if len(a) == 0 {
 		return b
 	}
@@ -18,6 +21,7 @@ func merge(a, b []int) []int {
 }
 
 func mergeSort(a []int, n int) []int {
+	op++
 	if n == 1 {
 		return a
 	}
