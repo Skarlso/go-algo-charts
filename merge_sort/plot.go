@@ -1,38 +1,33 @@
 package main
 
 import (
-	"bytes"
-	"io/ioutil"
+	"math/rand"
 
-	"github.com/wcharczuk/go-chart"
+	"gonum.org/v1/plot"
+	"gonum.org/v1/plot/plotter"
+	"gonum.org/v1/plot/plotutil"
+	"gonum.org/v1/plot/vg"
 )
 
-func drawChart(xValues, yValues []float64) {
-	graph := chart.Chart{
-		XAxis: chart.XAxis{
-			Name:      "Elements",
-			NameStyle: chart.StyleShow(),
-			Style:     chart.StyleShow(),
-		},
-		YAxis: chart.YAxis{
-			Name:      "Operations",
-			NameStyle: chart.StyleShow(),
-			Style:     chart.StyleShow(),
-		},
-		Series: []chart.Series{
-			chart.ContinuousSeries{
-				Style: chart.Style{
-					Show:        true,
-					StrokeColor: chart.GetDefaultColor(0).WithAlpha(64),
-					FillColor:   chart.GetDefaultColor(0).WithAlpha(64),
-				},
-				XValues: xValues,
-				YValues: yValues,
-			},
-		},
+func plotChart(xys plotter.XYs) {
+	rand.Seed(int64(0))
+
+	p, err := plot.New()
+	if err != nil {
+		panic(err)
 	}
 
-	buffer := bytes.NewBuffer([]byte{})
-	graph.Render(chart.PNG, buffer)
-	ioutil.WriteFile("mergeSort.png", buffer.Bytes(), 0766)
+	p.Title.Text = "Merge Sort"
+	p.X.Label.Text = "X"
+	p.Y.Label.Text = "Y"
+
+	err = plotutil.AddLinePoints(p, xys)
+	if err != nil {
+		panic(err)
+	}
+
+	// Save the plot to a PNG file.
+	if err := p.Save(4*vg.Inch, 4*vg.Inch, "merge_sort.png"); err != nil {
+		panic(err)
+	}
 }
