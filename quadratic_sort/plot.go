@@ -17,7 +17,7 @@ func plotChart(xys plotter.XYs) {
 		panic(err)
 	}
 
-	p.Title.Text = "Merge Sort"
+	p.Title.Text = "Quadratic Sort"
 	p.X.Label.Text = "Element"
 	p.Y.Label.Text = "Op"
 
@@ -27,7 +27,7 @@ func plotChart(xys plotter.XYs) {
 	}
 
 	// Save the plot to a PNG file.
-	if err := p.Save(4*vg.Inch, 4*vg.Inch, "merge_sort.png"); err != nil {
+	if err := p.Save(4*vg.Inch, 4*vg.Inch, "quadratic_sort.png"); err != nil {
 		panic(err)
 	}
 }

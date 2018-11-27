@@ -16,7 +16,7 @@ func main() {
 			a[i], a[j] = a[j], a[i]
 		}
 		elements := len(a)
-		mergeSort(a, elements)
+		quadraticSort(a)
 		plotX = append(plotX, float64(elements))
 		plotY = append(plotY, float64(op))
 	}

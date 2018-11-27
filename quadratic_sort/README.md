@@ -6,4 +6,4 @@ Graph generated via [gonum-plot](https://github.com/gonum/plot).
 
 Plot:
 
-![merge_sort](./merge_sort.png)
+![quadratic_sort](./quadratic_sort.png)
