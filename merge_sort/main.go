@@ -10,7 +10,7 @@ func main() {
 	plotY := []float64{}
 	a := []int{4, 3, 2, 1}
 
-	for i := 0; i < 1000; i++ {
+	for i := 0; i < 3000; i++ {
 		op = 0
 		a = append(a, i)
 		for i, j := 0, len(a)-1; i < j; i, j = i+1, j-1 {
@@ -26,5 +26,5 @@ func main() {
 		pts[i].X = plotX[i]
 		pts[i].Y = plotY[i]
 	}
-	algoplotter.PlotChart(pts, "Merge Sort", "merge_sort")
+	algoplotter.PlotChart(pts, "merge_sort", "Merge Sort")
 }
