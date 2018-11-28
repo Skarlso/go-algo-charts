@@ -1,4 +1,4 @@
-package main
+package algoplotter
 
 import (
 	"math/rand"
@@ -9,25 +9,23 @@ import (
 	"gonum.org/v1/plot/vg"
 )
 
-func plotChart(xys plotter.XYs) {
+// PlotChart will create a chart from xys coordinates.
+func PlotChart(xys plotter.XYs, filename, title string) error {
 	rand.Seed(int64(0))
 
 	p, err := plot.New()
 	if err != nil {
-		panic(err)
+		return err
 	}
 
-	p.Title.Text = "Merge Sort"
+	p.Title.Text = title
 	p.X.Label.Text = "Element"
 	p.Y.Label.Text = "Op"
 
 	err = plotutil.AddLinePoints(p, xys)
 	if err != nil {
-		panic(err)
+		return err
 	}
 
-	// Save the plot to a PNG file.
-	if err := p.Save(4*vg.Inch, 4*vg.Inch, "merge_sort.png"); err != nil {
-		panic(err)
-	}
+	return p.Save(4*vg.Inch, 4*vg.Inch, filename+".png")
 }

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/Skarlso/go-algo-charts/algoplotter"
 	"gonum.org/v1/plot/plotter"
 )
 
@@ -25,5 +26,5 @@ func main() {
 		pts[i].X = plotX[i]
 		pts[i].Y = plotY[i]
 	}
-	plotChart(pts)
+	algoplotter.PlotChart(pts, "Quadractic Sort", "quadratic_sort")
 }
