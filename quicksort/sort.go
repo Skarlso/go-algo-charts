@@ -2,6 +2,12 @@ package main
 
 var op int
 
+func quick(a []int) int {
+	op = 0
+	quicksort(a, 0, len(a)-1)
+	return op
+}
+
 func quicksort(a []int, begin, end int) []int {
 	op++
 	if begin < end {
